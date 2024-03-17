@@ -1,8 +1,5 @@
 .env/
 .ssh/
 .secrets/
-<<<<<<< HEAD
 .venv
-=======
 .terraform/
->>>>>>> 7734b2ff4c4a33270a2fa8125fdac360e195a472
