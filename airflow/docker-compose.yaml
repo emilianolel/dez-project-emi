@@ -4,18 +4,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: webserver
+    command: airflow webserver
     volumes:
-      - ./dags:/opt/airflow/dags
+      - ./dags:/usr/local/airflow/dags
     ports:
       - "8080:8080"
   scheduler:
     build:
       context: .
       dockerfile: Dockerfile
-    command: scheduler
+    command: airflow scheduler
     volumes:
-      - ./dags:/opt/airflow/dags
+      - ./dags:/usr/local/airflow/dags
   postgres:
     image: postgres:latest
     environment:

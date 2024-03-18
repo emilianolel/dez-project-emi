@@ -21,7 +21,9 @@ with DAG(
 
     default_args=default_args,
 
-    schedule_interval="@weekly"
+    schedule_interval="@weekly",
+    
+    catchup = False
 
 ) as test_dag:
 
