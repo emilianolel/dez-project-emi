@@ -88,21 +88,23 @@ month_dict = {
 def get_first_day_of_month_date_udf(year, month_name):
     return str(year) + '-' + month_dict[month_name]
 
-
+print('READING CSV FILE')
 idm_df = spark.read\
     .option('header', True)\
     .schema(idm_schema)\
     .csv('gs://landing_bucket_dez/idm.csv')
 
-
+print('TRANSFORMING DATA')
 unpivoted_df = idm_df.selectExpr(*unpivoting_columns
                                  , stack_query_expression)
 
 
 date_df = unpivoted_df.withColumn('info_month_date', get_first_day_of_month_date_udf('year', 'month').cast(DateType()))
 
-
+print('WRITING DATA')
 date_df.write\
 .mode("overwrite")\
 .partitionBy('year')\
 .parquet('gs://landing_bucket_dez/pq/idm/')
+
+print('DONE!')
