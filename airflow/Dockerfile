@@ -30,8 +30,6 @@ ENV GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/gcp-secret.json
 
 RUN gcloud auth activate-service-account dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com --key-file=/tmp/keys/gcp-secret.json --project=dez-workspace-emil
 
-RUN rm -rf /root/.gsutil
-
 # Switch back to the airflow user
 USER airflow
 

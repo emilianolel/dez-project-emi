@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SERVICE_ACCOUNT_FILE_NAME=$GOOGLE_APPLICATION_CREDENTIALS
+
 WORKDIR= /usr/src/app
 
 TEMP_DIRECTORY=./temp/idm/
@@ -25,10 +27,12 @@ download_idm() {
 
 }
 
+echo $SERVICE_ACCOUNT_FILE_NAME
+
 echo
-echo 'CLEANING GSUTL'
-rm -rf /home/airflow/.gsutil
-rm -rf /root/.gsutil
+echo 'SETTING UP SERVICE ACCOUNT'
+gcloud auth activate-service-account --key-file=$SERVICE_ACCOUNT_FILE_NAME
+
 echo
 echo 'CHANGING TO WORK DIRECTORY'
 cd $WORKDIR
@@ -48,16 +52,8 @@ echo 'DOWNLOADING IDM CSV FILE'
 download_idm $IDM_DOWNLOAD_LINK
 
 echo
-echo 'BEFORE MOVING CSV FILE TO GCS'
-ls -lah /home/airflow/
-
-echo
 echo 'MOVING IDM CSV FILE TO GCS'
 gsutil -m cp $TEMP_DIRECTORY$CSV_FILE_NAME $BUCKET_PATH
-
-echo
-echo 'AFTER MOVING CSV FILE TO GCS'
-ls -lah /home/airflow/
 
 echo
 echo 'DELETING TEMP DIRECTORY'
