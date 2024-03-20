@@ -1,0 +1,41 @@
+# Use the official Airflow image as the base
+FROM apache/airflow:${APACHE_AIRFLOW_VERSION}
+
+# Set the AIRFLOW_HOME environment variable
+ENV AIRFLOW_HOME=${AIRFLOW_HOME}
+
+# Switch to the root user
+USER root
+
+# Create the AIRFLOW_HOME directory and change its ownership to the airflow user
+RUN mkdir -p ${AIRFLOW_HOME} && chown -R airflow: ${AIRFLOW_HOME}
+
+# Downloading gcloud package
+RUN curl ${GCLOUD_PACKAGE_LINK} > ${GOOGLE_TEMP_DIR}
+
+# Installing the package
+RUN mkdir -p ${USR_GCLOUD_DIR} \
+  && tar -C ${USR_GCLOUD_DIR} -xvf ${GCLOUD_SDK_TAR} \
+  && ${GCLOUD_SDK_INSTALL}
+
+# Adding the package path to local
+ENV PATH $PATH:${GCLOUD_BIN}
+
+# GCP creds
+RUN mkdir -p /tmp/keys
+
+COPY ${USER_GCP_SECRET_PATH}${USER_GCP_SECRET_NAME} ${CONTAINER_GCP_SECRET_FILE}
+
+ENV GOOGLE_APPLICATION_CREDENTIALS=${CONTAINER_GCP_SECRET_FILE}
+
+RUN gcloud auth activate-service-account ${GCP_SERVICE_ACCOUNT} --key-file=${GOOGLE_APPLICATION_CREDENTIALS} --project=${GCP_PRJECT}
+
+USER ${AIRFLOW_UID:-50000}:0
+
+# Install python packages
+WORKDIR ${WORKDIR}
+
+COPY ${REQUIREMENTS_FILE} ./
+
+RUN pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir -r ${REQUIREMENTS_FILE}

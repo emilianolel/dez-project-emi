@@ -1,0 +1,56 @@
+[2024-03-20T05:16:38.558+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.from_gcs_to_bq manual__2024-03-20T05:04:30.882224+00:00 [queued]>
+[2024-03-20T05:16:38.562+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.from_gcs_to_bq manual__2024-03-20T05:04:30.882224+00:00 [queued]>
+[2024-03-20T05:16:38.562+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 2
+[2024-03-20T05:16:38.567+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): from_gcs_to_bq> on 2024-03-20 05:04:30.882224+00:00
+[2024-03-20T05:16:38.570+0000] {standard_task_runner.py:60} INFO - Started process 1837 to run task
+[2024-03-20T05:16:38.572+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'IDM_TO_BQ_PQ_RAW', 'from_gcs_to_bq', 'manual__2024-03-20T05:04:30.882224+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/IDM_TO_BQ_PQ_RAW.py', '--cfg-path', '/tmp/tmp2cdy0a89']
+[2024-03-20T05:16:38.573+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask from_gcs_to_bq
+[2024-03-20T05:16:38.581+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-03-20T05:16:38.594+0000] {task_command.py:423} INFO - Running <TaskInstance: IDM_TO_BQ_PQ_RAW.from_gcs_to_bq manual__2024-03-20T05:04:30.882224+00:00 [running]> on host bf143d508a6e
+[2024-03-20T05:16:38.621+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='IDM_TO_BQ_PQ_RAW' AIRFLOW_CTX_TASK_ID='from_gcs_to_bq' AIRFLOW_CTX_EXECUTION_DATE='2024-03-20T05:04:30.882224+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-20T05:04:30.882224+00:00'
+[2024-03-20T05:16:38.621+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-20T05:16:38.622+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "#!/bin/bash\n\nSERVICE_ACCOUNT_FILE_NAME=$GOOGLE_APPLICATION_CREDENTIALS\nPYTHON_DIR=/opt/***/src/idm_to_bq_pq_raw/pyspark/\nPYTHON_FILE=from_gcs_to_bq.py\nDATAPROC_CLUSTER=dez-cluster-emil\nDATAPROC_REGION=us-central1\nGCP_PROJECT=dez-workspace-emil\n\necho\necho 'SETTING UP SERVICE ACCOUNT'\ngcloud auth activate-service-account --key-file=$SERVICE_ACCOUNT_FILE_NAME\ngcloud config set project $GCP_PROJECT\n\necho\necho 'STARTING PQ TO BQ TABLE'\n\ngcloud dataproc jobs submit pyspark $PYTHON_DIR$PYTHON_FILE --cluster=$DATAPROC_CLUSTER --region=$DATAPROC_REGION\n\necho\necho 'DONE!'"]
+[2024-03-20T05:16:38.625+0000] {subprocess.py:86} INFO - Output:
+[2024-03-20T05:16:38.626+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:16:38.626+0000] {subprocess.py:93} INFO - SETTING UP SERVICE ACCOUNT
+[2024-03-20T05:16:39.256+0000] {subprocess.py:93} INFO - Activated service account credentials for: [dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com]
+[2024-03-20T05:16:39.889+0000] {subprocess.py:93} INFO - WARNING: You do not appear to have access to project [dez-workspace-emil] or it does not exist.
+[2024-03-20T05:16:39.891+0000] {subprocess.py:93} INFO - Updated property [core/project].
+[2024-03-20T05:16:39.976+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:16:39.976+0000] {subprocess.py:93} INFO - STARTING PQ TO BQ TABLE
+[2024-03-20T05:16:41.489+0000] {subprocess.py:93} INFO - Job [0e82a95a634f49de8d7476ab93015db0] submitted.
+[2024-03-20T05:16:41.489+0000] {subprocess.py:93} INFO - Waiting for job output...
+[2024-03-20T05:16:52.883+0000] {subprocess.py:93} INFO - 24/03/20 05:16:49 INFO SparkEnv: Registering MapOutputTracker
+[2024-03-20T05:16:52.884+0000] {subprocess.py:93} INFO - 24/03/20 05:16:49 INFO SparkEnv: Registering BlockManagerMaster
+[2024-03-20T05:16:52.884+0000] {subprocess.py:93} INFO - 24/03/20 05:16:49 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-03-20T05:16:52.884+0000] {subprocess.py:93} INFO - 24/03/20 05:16:49 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-03-20T05:16:52.884+0000] {subprocess.py:93} INFO - 24/03/20 05:16:50 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:8032
+[2024-03-20T05:16:52.885+0000] {subprocess.py:93} INFO - 24/03/20 05:16:51 INFO AHSProxy: Connecting to Application History server at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:10200
+[2024-03-20T05:16:55.447+0000] {subprocess.py:93} INFO - 24/03/20 05:16:52 INFO Configuration: resource-types.xml not found
+[2024-03-20T05:16:55.450+0000] {subprocess.py:93} INFO - 24/03/20 05:16:52 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+[2024-03-20T05:16:55.451+0000] {subprocess.py:93} INFO - 24/03/20 05:16:53 INFO YarnClientImpl: Submitted application application_1710911145524_0004
+[2024-03-20T05:16:57.440+0000] {subprocess.py:93} INFO - 24/03/20 05:16:54 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:8030
+[2024-03-20T05:17:00.512+0000] {subprocess.py:93} INFO - 24/03/20 05:16:57 INFO GhfsStorageStatistics: Detected potential high latency for operation op_get_file_status. latencyMs=447; previousMaxLatencyMs=0; operationCount=1; context=gs://dataproc-temp-us-central1-329749248489-tvazyaju/0d535e65-dd60-4b02-909b-d22e134b1b15/spark-job-history
+[2024-03-20T05:17:00.515+0000] {subprocess.py:93} INFO - 24/03/20 05:16:57 INFO GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+[2024-03-20T05:17:00.516+0000] {subprocess.py:93} INFO - 24/03/20 05:16:57 INFO GhfsStorageStatistics: Detected potential high latency for operation op_mkdirs. latencyMs=202; previousMaxLatencyMs=0; operationCount=1; context=gs://dataproc-temp-us-central1-329749248489-tvazyaju/0d535e65-dd60-4b02-909b-d22e134b1b15/spark-job-history
+[2024-03-20T05:17:00.517+0000] {subprocess.py:93} INFO - 24/03/20 05:16:57 INFO GhfsStorageStatistics: Detected potential high latency for operation op_create. latencyMs=170; previousMaxLatencyMs=0; operationCount=1; context=gs://dataproc-temp-us-central1-329749248489-tvazyaju/0d535e65-dd60-4b02-909b-d22e134b1b15/spark-job-history/application_1710911145524_0004.inprogress
+[2024-03-20T05:17:02.719+0000] {subprocess.py:93} INFO - READING PARQUET FILE
+[2024-03-20T05:17:02.721+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-03-20T05:17:02.721+0000] {subprocess.py:93} INFO -   File "/tmp/0e82a95a634f49de8d7476ab93015db0/from_gcs_to_bq.py", line 20, in <module>
+[2024-03-20T05:17:02.722+0000] {subprocess.py:93} INFO -     idm_df = spark.read.parquet('gs://landing_bucket_dez/pq/idm/*')
+[2024-03-20T05:17:02.722+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 364, in parquet
+[2024-03-20T05:17:02.723+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1321, in __call__
+[2024-03-20T05:17:02.724+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 196, in deco
+[2024-03-20T05:17:02.724+0000] {subprocess.py:93} INFO - pyspark.sql.utils.AnalysisException: Path does not exist: gs://landing_bucket_dez/pq/idm/*
+[2024-03-20T05:17:11.829+0000] {subprocess.py:93} INFO - ERROR: (gcloud.dataproc.jobs.submit.pyspark) Job [0e82a95a634f49de8d7476ab93015db0] failed with error:
+[2024-03-20T05:17:11.837+0000] {subprocess.py:93} INFO - Job failed with message [pyspark.sql.utils.AnalysisException: Path does not exist: gs://landing_bucket_dez/pq/idm/*]. Additional details can be found at:
+[2024-03-20T05:17:11.838+0000] {subprocess.py:93} INFO - https://console.cloud.google.com/dataproc/jobs/0e82a95a634f49de8d7476ab93015db0?project=dez-workspace-emil&region=us-central1
+[2024-03-20T05:17:11.839+0000] {subprocess.py:93} INFO - gcloud dataproc jobs wait '0e82a95a634f49de8d7476ab93015db0' --region 'us-central1' --project 'dez-workspace-emil'
+[2024-03-20T05:17:11.839+0000] {subprocess.py:93} INFO - https://console.cloud.google.com/storage/browser/dataproc-staging-us-central1-329749248489-jq1oe9c7/google-cloud-dataproc-metainfo/0d535e65-dd60-4b02-909b-d22e134b1b15/jobs/0e82a95a634f49de8d7476ab93015db0/
+[2024-03-20T05:17:11.840+0000] {subprocess.py:93} INFO - gs://dataproc-staging-us-central1-329749248489-jq1oe9c7/google-cloud-dataproc-metainfo/0d535e65-dd60-4b02-909b-d22e134b1b15/jobs/0e82a95a634f49de8d7476ab93015db0/driveroutput.*
+[2024-03-20T05:17:11.928+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:17:11.929+0000] {subprocess.py:93} INFO - DONE!
+[2024-03-20T05:17:11.929+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-20T05:17:11.952+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=IDM_TO_BQ_PQ_RAW, task_id=from_gcs_to_bq, execution_date=20240320T050430, start_date=20240320T051638, end_date=20240320T051711
+[2024-03-20T05:17:11.987+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-20T05:17:12.003+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,53 @@
+[2024-03-20T05:44:54.458+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.download_idm manual__2024-03-20T05:41:25.524027+00:00 [queued]>
+[2024-03-20T05:44:54.461+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.download_idm manual__2024-03-20T05:41:25.524027+00:00 [queued]>
+[2024-03-20T05:44:54.461+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-20T05:44:54.467+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): download_idm> on 2024-03-20 05:41:25.524027+00:00
+[2024-03-20T05:44:54.469+0000] {standard_task_runner.py:60} INFO - Started process 3700 to run task
+[2024-03-20T05:44:54.470+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'IDM_TO_BQ_PQ_RAW', 'download_idm', 'manual__2024-03-20T05:41:25.524027+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/IDM_TO_BQ_PQ_RAW.py', '--cfg-path', '/tmp/tmpo3ay7wmp']
+[2024-03-20T05:44:54.471+0000] {standard_task_runner.py:88} INFO - Job 33: Subtask download_idm
+[2024-03-20T05:44:54.477+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-03-20T05:44:54.491+0000] {task_command.py:423} INFO - Running <TaskInstance: IDM_TO_BQ_PQ_RAW.download_idm manual__2024-03-20T05:41:25.524027+00:00 [running]> on host bf143d508a6e
+[2024-03-20T05:44:54.516+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='IDM_TO_BQ_PQ_RAW' AIRFLOW_CTX_TASK_ID='download_idm' AIRFLOW_CTX_EXECUTION_DATE='2024-03-20T05:41:25.524027+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-20T05:41:25.524027+00:00'
+[2024-03-20T05:44:54.516+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-20T05:44:54.517+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '#!/bin/bash\n\nSERVICE_ACCOUNT_FILE_NAME=$GOOGLE_APPLICATION_CREDENTIALS\n\nWORKDIR=$WORKDIR\n\nTEMP_DIRECTORY=./temp/idm/\n\nIDM_DOWNLOAD_LINK=\'https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva?state=published\'\n\nZIP_FILE_NAME=idm.zip\n\nCSV_FILE_NAME=idm.csv\n\nBUCKET_PATH=gs://landing_bucket_dez/\n\n\ndownload_idm() {\n\t\n\tgoogle_idm_id=$(curl -s  "$1" | \\\n\t\tgrep -Po "(?<=href=\\")[^\\"][^\\"]*(?=\\">Cifras de Incidencia Delictiva Municipal, 2015.*)"  | \\\n\t\tsed \'s| |%20|g\' | grep -oP \'(?<=/)[0-9a-zA-Z_-]{20,}(?=/)\')\n        \n\techo "Google IDM id: $google_idm_id"\n\n        gdown $google_idm_id -O $TEMP_DIRECTORY$CSV_FILE_NAME\n\n}\n\necho $SERVICE_ACCOUNT_FILE_NAME\n\necho\necho \'SETTING UP SERVICE ACCOUNT\'\ngcloud auth activate-service-account --key-file=$SERVICE_ACCOUNT_FILE_NAME\n\necho\necho \'CHANGING TO WORK DIRECTORY\'\ncd $WORKDIR\necho\necho \'CURRENT DIR\'\npwd\n\necho\necho \' EXECUTING FILE: \' $0\n\necho\necho \'CREATING TEMP DIRECORY\'\nmkdir -p $TEMP_DIRECTORY\n\necho\necho \'DOWNLOADING IDM CSV FILE\'\ndownload_idm $IDM_DOWNLOAD_LINK\n\necho\necho \'MOVING IDM CSV FILE TO GCS\'\ngsutil -m cp $TEMP_DIRECTORY$CSV_FILE_NAME $BUCKET_PATH\n\necho\necho \'DELETING TEMP DIRECTORY\'\nrm -rf $TEMP_DIRECTORY\n\necho\necho \'DONE!\'']
+[2024-03-20T05:44:54.520+0000] {subprocess.py:86} INFO - Output:
+[2024-03-20T05:44:54.521+0000] {subprocess.py:93} INFO - /tmp/keys/gcp-secret.json
+[2024-03-20T05:44:54.521+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:54.522+0000] {subprocess.py:93} INFO - SETTING UP SERVICE ACCOUNT
+[2024-03-20T05:44:55.168+0000] {subprocess.py:93} INFO - Activated service account credentials for: [dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com]
+[2024-03-20T05:44:55.221+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:55.221+0000] {subprocess.py:93} INFO - CHANGING TO WORK DIRECTORY
+[2024-03-20T05:44:55.222+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:55.222+0000] {subprocess.py:93} INFO - CURRENT DIR
+[2024-03-20T05:44:55.222+0000] {subprocess.py:93} INFO - /***
+[2024-03-20T05:44:55.222+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:55.223+0000] {subprocess.py:93} INFO -  EXECUTING FILE:  /usr/bin/bash
+[2024-03-20T05:44:55.223+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:55.224+0000] {subprocess.py:93} INFO - CREATING TEMP DIRECORY
+[2024-03-20T05:44:55.224+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:44:55.224+0000] {subprocess.py:93} INFO - DOWNLOADING IDM CSV FILE
+[2024-03-20T05:44:55.621+0000] {subprocess.py:93} INFO - Google IDM id: 1uOVB69LLwdTXGf0LqqvjJCFtXdi-rZbI
+[2024-03-20T05:46:11.205+0000] {subprocess.py:93} INFO - Error:
+[2024-03-20T05:46:11.208+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:46:11.208+0000] {subprocess.py:93} INFO - 	HTTPSConnectionPool(host='doc-0g-60-docs.googleusercontent.com',
+[2024-03-20T05:46:11.209+0000] {subprocess.py:93} INFO - 	port=443): Max retries exceeded with url: /docs/securesc/ha0ro937gcuc7
+[2024-03-20T05:46:11.209+0000] {subprocess.py:93} INFO - 	l7deffksulhg5h7mbp1/crv8sj00piqt4amnuimrpcfjt86qnnhj/1710913425000/033
+[2024-03-20T05:46:11.209+0000] {subprocess.py:93} INFO - 	31274922829091634/*/1uOVB69LLwdTXGf0LqqvjJCFtXdi-
+[2024-03-20T05:46:11.210+0000] {subprocess.py:93} INFO - 	rZbI?uuid=565e6685-b461-422f-92b9-14b6339b9763 (Caused by
+[2024-03-20T05:46:11.210+0000] {subprocess.py:93} INFO - 	NewConnectionError('<urllib3.connection.HTTPSConnection object at
+[2024-03-20T05:46:11.210+0000] {subprocess.py:93} INFO - 	0xffff8f041a30>: Failed to establish a new connection: [Errno 111]
+[2024-03-20T05:46:11.211+0000] {subprocess.py:93} INFO - 	Connection refused'))
+[2024-03-20T05:46:11.211+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:46:11.211+0000] {subprocess.py:93} INFO - To report issues, please visit https://github.com/wkentaro/gdown/issues.
+[2024-03-20T05:46:11.236+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:46:11.236+0000] {subprocess.py:93} INFO - MOVING IDM CSV FILE TO GCS
+[2024-03-20T05:46:11.858+0000] {subprocess.py:93} INFO - CommandException: No URLs matched: ./temp/idm/idm.csv
+[2024-03-20T05:46:11.900+0000] {subprocess.py:93} INFO - CommandException: 1 file/object could not be transferred.
+[2024-03-20T05:46:12.068+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:46:12.069+0000] {subprocess.py:93} INFO - DELETING TEMP DIRECTORY
+[2024-03-20T05:46:12.069+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:46:12.070+0000] {subprocess.py:93} INFO - DONE!
+[2024-03-20T05:46:12.070+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-20T05:46:12.090+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=IDM_TO_BQ_PQ_RAW, task_id=download_idm, execution_date=20240320T054125, start_date=20240320T054454, end_date=20240320T054612
+[2024-03-20T05:46:12.110+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-20T05:46:12.125+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

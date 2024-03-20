@@ -1,0 +1,215 @@
+[2024-03-20T05:11:56.349+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.csv_to_pq manual__2024-03-20T05:04:30.882224+00:00 [queued]>
+[2024-03-20T05:11:56.353+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: IDM_TO_BQ_PQ_RAW.csv_to_pq manual__2024-03-20T05:04:30.882224+00:00 [queued]>
+[2024-03-20T05:11:56.353+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-20T05:11:56.359+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): csv_to_pq> on 2024-03-20 05:04:30.882224+00:00
+[2024-03-20T05:11:56.361+0000] {standard_task_runner.py:60} INFO - Started process 1438 to run task
+[2024-03-20T05:11:56.363+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'IDM_TO_BQ_PQ_RAW', 'csv_to_pq', 'manual__2024-03-20T05:04:30.882224+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/IDM_TO_BQ_PQ_RAW.py', '--cfg-path', '/tmp/tmp5rc0x2um']
+[2024-03-20T05:11:56.363+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask csv_to_pq
+[2024-03-20T05:11:56.371+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-03-20T05:11:56.383+0000] {task_command.py:423} INFO - Running <TaskInstance: IDM_TO_BQ_PQ_RAW.csv_to_pq manual__2024-03-20T05:04:30.882224+00:00 [running]> on host bf143d508a6e
+[2024-03-20T05:11:56.411+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='IDM_TO_BQ_PQ_RAW' AIRFLOW_CTX_TASK_ID='csv_to_pq' AIRFLOW_CTX_EXECUTION_DATE='2024-03-20T05:04:30.882224+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-20T05:04:30.882224+00:00'
+[2024-03-20T05:11:56.412+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-20T05:11:56.412+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "#!/bin/bash\n\nSERVICE_ACCOUNT_FILE_NAME=$GOOGLE_APPLICATION_CREDENTIALS\nPYTHON_DIR=/opt/***/src/idm_to_bq_pq_raw/pyspark/\nPYTHON_FILE=csv_to_pq.py\nDATAPROC_CLUSTER=dez-cluster-emil\nDATAPROC_REGION=us-central1\nGCP_PROJECT=dez-workspace-emil\n\necho\necho 'SETTING UP SERVICE ACCOUNT'\ngcloud auth activate-service-account --key-file=$SERVICE_ACCOUNT_FILE_NAME\ngcloud config set project $GCP_PROJECT\n\necho\necho 'STARTING FROM CSV TO PARQUET'\n\ngcloud dataproc jobs submit pyspark $PYTHON_DIR$PYTHON_FILE --cluster=$DATAPROC_CLUSTER --region=$DATAPROC_REGION\n\necho\necho 'DONE!'"]
+[2024-03-20T05:11:56.416+0000] {subprocess.py:86} INFO - Output:
+[2024-03-20T05:11:56.417+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:11:56.418+0000] {subprocess.py:93} INFO - SETTING UP SERVICE ACCOUNT
+[2024-03-20T05:11:57.107+0000] {subprocess.py:93} INFO - Activated service account credentials for: [dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com]
+[2024-03-20T05:11:57.797+0000] {subprocess.py:93} INFO - WARNING: You do not appear to have access to project [dez-workspace-emil] or it does not exist.
+[2024-03-20T05:11:57.799+0000] {subprocess.py:93} INFO - Updated property [core/project].
+[2024-03-20T05:11:57.893+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:11:57.893+0000] {subprocess.py:93} INFO - STARTING FROM CSV TO PARQUET
+[2024-03-20T05:11:59.831+0000] {subprocess.py:93} INFO - Job [7f70314545b54fa2b8992455ba049dac] submitted.
+[2024-03-20T05:11:59.833+0000] {subprocess.py:93} INFO - Waiting for job output...
+[2024-03-20T05:12:08.427+0000] {subprocess.py:93} INFO - 24/03/20 05:12:06 INFO SparkEnv: Registering MapOutputTracker
+[2024-03-20T05:12:08.429+0000] {subprocess.py:93} INFO - 24/03/20 05:12:06 INFO SparkEnv: Registering BlockManagerMaster
+[2024-03-20T05:12:08.430+0000] {subprocess.py:93} INFO - 24/03/20 05:12:06 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-03-20T05:12:08.430+0000] {subprocess.py:93} INFO - 24/03/20 05:12:06 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-03-20T05:12:10.846+0000] {subprocess.py:93} INFO - 24/03/20 05:12:07 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:8032
+[2024-03-20T05:12:10.849+0000] {subprocess.py:93} INFO - 24/03/20 05:12:07 INFO AHSProxy: Connecting to Application History server at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:10200
+[2024-03-20T05:12:10.850+0000] {subprocess.py:93} INFO - 24/03/20 05:12:09 INFO Configuration: resource-types.xml not found
+[2024-03-20T05:12:10.851+0000] {subprocess.py:93} INFO - 24/03/20 05:12:09 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+[2024-03-20T05:12:13.344+0000] {subprocess.py:93} INFO - 24/03/20 05:12:11 INFO YarnClientImpl: Submitted application application_1710911145524_0001
+[2024-03-20T05:12:15.831+0000] {subprocess.py:93} INFO - 24/03/20 05:12:12 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at dez-cluster-emil-m.us-central1-c.c.dez-workspace-emil.internal./10.128.0.3:8030
+[2024-03-20T05:12:15.833+0000] {subprocess.py:93} INFO - 24/03/20 05:12:14 INFO GhfsStorageStatistics: Detected potential high latency for operation op_get_file_status. latencyMs=366; previousMaxLatencyMs=0; operationCount=1; context=gs://dataproc-temp-us-central1-329749248489-tvazyaju/0d535e65-dd60-4b02-909b-d22e134b1b15/spark-job-history
+[2024-03-20T05:12:15.833+0000] {subprocess.py:93} INFO - 24/03/20 05:12:14 INFO GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+[2024-03-20T05:12:15.834+0000] {subprocess.py:93} INFO - 24/03/20 05:12:14 INFO GhfsStorageStatistics: Detected potential high latency for operation op_mkdirs. latencyMs=158; previousMaxLatencyMs=0; operationCount=1; context=gs://dataproc-temp-us-central1-329749248489-tvazyaju/0d535e65-dd60-4b02-909b-d22e134b1b15/spark-job-history
+[2024-03-20T05:12:18.027+0000] {subprocess.py:93} INFO - READING CSV FILE
+[2024-03-20T05:12:26.165+0000] {subprocess.py:93} INFO - TRANSFORMING DATA
+[2024-03-20T05:12:26.167+0000] {subprocess.py:93} INFO - WRITING DATA
+[2024-03-20T05:12:28.698+0000] {subprocess.py:93} INFO - 24/03/20 05:12:26 INFO GhfsStorageStatistics: Detected potential high latency for operation op_delete. latencyMs=336; previousMaxLatencyMs=0; operationCount=1; context=gs://landing_bucket_dez/pq/idm
+[2024-03-20T05:12:28.699+0000] {subprocess.py:93} INFO - 24/03/20 05:12:26 INFO GhfsStorageStatistics: Detected potential high latency for operation op_mkdirs. latencyMs=243; previousMaxLatencyMs=158; operationCount=2; context=gs://landing_bucket_dez/pq/idm/_temporary/0
+[2024-03-20T05:13:34.849+0000] {subprocess.py:93} INFO - 24/03/20 05:13:32 ERROR FileFormatWriter: Aborting job ca9c3235-6962-4bc8-a018-e2702163aa0d.
+[2024-03-20T05:13:34.851+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Job 0 cancelled because SparkContext was shut down
+[2024-03-20T05:13:34.851+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1195) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1193) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79) ~[scala-library-2.12.18.jar:?]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1193) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:2940) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2834) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1485) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2834) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$11(SparkContext.scala:2158) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1485) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2158) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2112) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$37(SparkContext.scala:710) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23) ~[scala-library-2.12.18.jar:?]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2067) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23) ~[scala-library-2.12.18.jar:?]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213) ~[scala-library-2.12.18.jar:?]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+[2024-03-20T05:13:34.855+0000] {subprocess.py:93} INFO - 	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:959) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2293) ~[spark-core_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.856+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:257) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:109) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:169) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:95) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.858+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:584) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:176) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:584) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:560) ~[spark-catalyst_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:116) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:860) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:390) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:363) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:793) ~[spark-sql_2.12-3.3.2.jar:3.3.2]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+[2024-03-20T05:13:34.861+0000] {subprocess.py:93} INFO - 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.862+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106) ~[py4j-0.10.9.5.jar:?]
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO - 	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO -   File "/tmp/7f70314545b54fa2b8992455ba049dac/csv_to_pq.py", line 108, in <module>
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO -     .parquet('gs://landing_bucket_dez/pq/idm/')
+[2024-03-20T05:13:34.863+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 1140, in parquet
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1321, in __call__
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 190, in deco
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO -   File "/usr/lib/spark/python/lib/py4j-0.10.9.5-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o112.parquet.
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO - : org.apache.spark.SparkException: Job aborted.
+[2024-03-20T05:13:34.864+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:650)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:309)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2024-03-20T05:13:34.865+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:109)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:169)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:95)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2024-03-20T05:13:34.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:584)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:176)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:584)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2024-03-20T05:13:34.867+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:560)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:116)
+[2024-03-20T05:13:34.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:860)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:390)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:363)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:793)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-03-20T05:13:34.869+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-03-20T05:13:34.870+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: Job 0 cancelled because SparkContext was shut down
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1195)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1193)
+[2024-03-20T05:13:34.871+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1193)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:2940)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2834)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1485)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2834)
+[2024-03-20T05:13:34.872+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$11(SparkContext.scala:2158)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1485)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2158)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2112)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$37(SparkContext.scala:710)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+[2024-03-20T05:13:34.873+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2067)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+[2024-03-20T05:13:34.874+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2024-03-20T05:13:34.875+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:959)
+[2024-03-20T05:13:34.876+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2293)
+[2024-03-20T05:13:34.876+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:257)
+[2024-03-20T05:13:34.876+0000] {subprocess.py:93} INFO - 	... 42 more
+[2024-03-20T05:13:34.876+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:13:38.432+0000] {subprocess.py:93} INFO - ERROR: (gcloud.dataproc.jobs.submit.pyspark) Job [7f70314545b54fa2b8992455ba049dac] failed with error:
+[2024-03-20T05:13:38.434+0000] {subprocess.py:93} INFO - Driver received SIGTERM/SIGKILL signal and exited with 143 code, which potentially signifies a memory pressure.
+[2024-03-20T05:13:38.435+0000] {subprocess.py:93} INFO - Google Cloud Dataproc Agent reports job failure. If logs are available, they can be found at:
+[2024-03-20T05:13:38.435+0000] {subprocess.py:93} INFO - https://console.cloud.google.com/dataproc/jobs/7f70314545b54fa2b8992455ba049dac?project=dez-workspace-emil&region=us-central1
+[2024-03-20T05:13:38.436+0000] {subprocess.py:93} INFO - gcloud dataproc jobs wait '7f70314545b54fa2b8992455ba049dac' --region 'us-central1' --project 'dez-workspace-emil'
+[2024-03-20T05:13:38.436+0000] {subprocess.py:93} INFO - https://console.cloud.google.com/storage/browser/dataproc-staging-us-central1-329749248489-jq1oe9c7/google-cloud-dataproc-metainfo/0d535e65-dd60-4b02-909b-d22e134b1b15/jobs/7f70314545b54fa2b8992455ba049dac/
+[2024-03-20T05:13:38.437+0000] {subprocess.py:93} INFO - gs://dataproc-staging-us-central1-329749248489-jq1oe9c7/google-cloud-dataproc-metainfo/0d535e65-dd60-4b02-909b-d22e134b1b15/jobs/7f70314545b54fa2b8992455ba049dac/driveroutput.*
+[2024-03-20T05:13:38.534+0000] {subprocess.py:93} INFO - 
+[2024-03-20T05:13:38.534+0000] {subprocess.py:93} INFO - DONE!
+[2024-03-20T05:13:38.535+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-20T05:13:38.555+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=IDM_TO_BQ_PQ_RAW, task_id=csv_to_pq, execution_date=20240320T050430, start_date=20240320T051156, end_date=20240320T051338
+[2024-03-20T05:13:38.569+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-20T05:13:38.583+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

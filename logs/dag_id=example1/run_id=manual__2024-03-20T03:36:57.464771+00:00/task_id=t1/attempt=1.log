@@ -1,0 +1,18 @@
+[2024-03-20T03:36:57.905+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example1.t1 manual__2024-03-20T03:36:57.464771+00:00 [queued]>
+[2024-03-20T03:36:57.910+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example1.t1 manual__2024-03-20T03:36:57.464771+00:00 [queued]>
+[2024-03-20T03:36:57.910+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-20T03:36:57.915+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): t1> on 2024-03-20 03:36:57.464771+00:00
+[2024-03-20T03:36:57.919+0000] {standard_task_runner.py:60} INFO - Started process 222 to run task
+[2024-03-20T03:36:57.921+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'example1', 't1', 'manual__2024-03-20T03:36:57.464771+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/example1.py', '--cfg-path', '/tmp/tmpw3psjmpg']
+[2024-03-20T03:36:57.922+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask t1
+[2024-03-20T03:36:57.940+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-03-20T03:36:57.969+0000] {task_command.py:423} INFO - Running <TaskInstance: example1.t1 manual__2024-03-20T03:36:57.464771+00:00 [running]> on host d3305dc92eb8
+[2024-03-20T03:36:58.004+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example1' AIRFLOW_CTX_TASK_ID='t1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-20T03:36:57.464771+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-20T03:36:57.464771+00:00'
+[2024-03-20T03:36:58.005+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-20T03:36:58.006+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'sleep 5 && echo task 1']
+[2024-03-20T03:36:58.013+0000] {subprocess.py:86} INFO - Output:
+[2024-03-20T03:37:03.017+0000] {subprocess.py:93} INFO - task 1
+[2024-03-20T03:37:03.017+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-20T03:37:03.030+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=example1, task_id=t1, execution_date=20240320T033657, start_date=20240320T033657, end_date=20240320T033703
+[2024-03-20T03:37:03.044+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-20T03:37:03.057+0000] {taskinstance.py:3312} INFO - 2 downstream tasks scheduled from follow-on schedule check
