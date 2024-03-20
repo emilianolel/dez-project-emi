@@ -3,3 +3,5 @@
 .secrets/
 .venv
 .terraform/
+logs/
+.DS_Store
