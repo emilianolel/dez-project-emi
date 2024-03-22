@@ -52,6 +52,6 @@ with DAG(
 
     # Set task dependencies
 
-    start >> start_cluster >> download_idm >> csv_to_pq >> from_gcs_to_bq >> stop_cluster >> end
+    start >> [start_cluster, download_idm] >> csv_to_pq >> from_gcs_to_bq >> stop_cluster >> end
 
     #start >> csv_to_pq >> end
