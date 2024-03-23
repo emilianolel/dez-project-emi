@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 
 TEMP_DIRECTORY=../tmp/mex_coords/
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 SERVICE_ACCOUNT_FILE_NAME=$GOOGLE_APPLICATION_CREDENTIALS
 PYTHON_DIR=/opt/airflow/src/coords_to_bq_pq_raw/pyspark/
