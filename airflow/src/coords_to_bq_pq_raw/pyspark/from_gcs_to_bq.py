@@ -8,7 +8,7 @@ DATAPROC_TEMP_BUCKET = 'dataproc-staging-us-central1-329749248489-jq1oe9c7'
 
 
 from pyspark.sql import SparkSession
-from argparse improt ArgumentParser
+from argparse import ArgumentParser
 
 
 
@@ -24,19 +24,20 @@ parser = ArgumentParser(
     description='Program that reads gcs file and writes a bq table'
 )
 
-parser.add_argument('--source-file')
-parser.add_argument('--target-table')
+parser.add_argument('--source_file')
+parser.add_argument('--target_table')
 
 args = parser.parse_args()
 
+
 print('READING PARQUET FILE')
 
-df = spark.read.parquet(SOURCE_FILE_PATH)
+df = spark.read.parquet(args.source_file)
 
 
 print('WRITING TABLE IN BQ')
 
 
-df.write.mode("overwrite").format("bigquery").option("table", TARGET_TABLE).save()
+df.write.mode("overwrite").format("bigquery").option("table", args.target_table).save()
 
 print('DONE!')
