@@ -16,9 +16,10 @@ default_args = {
 with DAG(
     'IDM_TO_BQ_PQ_RAW',
     default_args=default_args,
-    schedule_interval="@weekly",
+    schedule_interval=None,
     catchup = False,
-    template_searchpath=SRC_SHELL_PATH
+    template_searchpath=SRC_SHELL_PATH,
+    max_active_runs = 1
 ) as dag:
 
     start = DummyOperator(task_id='start')

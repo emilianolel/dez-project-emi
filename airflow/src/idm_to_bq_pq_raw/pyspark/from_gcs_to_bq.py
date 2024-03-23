@@ -17,11 +17,17 @@ spark.conf.set('temporaryGcsBucket', DATAPROC_TEMP_BUCKET)
 
 print('READING PARQUET FILE')
 
-idm_df = spark.read.parquet('gs://landing_bucket_dez/pq/idm/*')
+idm_df = spark.read\
+    .parquet('gs://landing_bucket_dez/pq/idm/*')\
+    .na.drop(subset=['info_month_date'])
 
 
 print('WRITING TABLE IN BQ')
 
-idm_df.write.mode("overwrite").format("bigquery").option("table", "raw_dez_crimes.raw_municipal_crime_incidence").save()
+idm_df.write\
+    .mode("overwrite")\
+    .format("bigquery")\
+    .option("table", "raw_dez_crimes.raw_municipal_crime_incidence")\
+    .save()
 
 print('DONE!')

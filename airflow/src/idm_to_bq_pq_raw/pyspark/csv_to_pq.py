@@ -5,11 +5,7 @@ LANDING_BUCKET = 'gs://landing_bucket_dez/'
 PARQUET_FILE = 'pq/idm/'
 CSV_FILE = 'idm.csv'
 
-import pyspark
 from pyspark.sql import SparkSession
-from pyspark.conf import SparkConf
-from pyspark.context import SparkContext
-import pyspark.sql.functions as F
 from pyspark.sql.functions import udf
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType, ShortType, ByteType, DateType
 
@@ -17,7 +13,6 @@ from pyspark.sql.types import StructType, StructField, IntegerType, StringType, 
 spark = SparkSession.builder \
         .appName('test') \
         .getOrCreate()
-
 
 idm_schema = StructType([
     StructField('year', ShortType(), True)
@@ -105,10 +100,12 @@ unpivoted_df = idm_df.selectExpr(*unpivoting_columns
 
 date_df = unpivoted_df.withColumn('info_month_date', get_first_day_of_month_date_udf('year', 'month').cast(DateType()))
 
+date_df.cache
+
 print('WRITING DATA')
 date_df.write\
-.mode("overwrite")\
-.partitionBy('year')\
-.parquet(LANDING_BUCKET + CSV_FILE)
+    .mode("overwrite")\
+    .partitionBy('year')\
+    .parquet(LANDING_BUCKET + CSV_FILE)
 
 print('DONE!')
