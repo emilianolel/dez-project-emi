@@ -21,7 +21,6 @@ services:
             dockerfile: Dockerfile
             args:
                 AIRFLOW_VERSION: ${AIRFLOW_VERSION:-2.4.1}
-        #user: "${AIRFLOW_UID:-50000}:0"
         user: airflow  
         env_file:
             - ./airflow/airflow.env
