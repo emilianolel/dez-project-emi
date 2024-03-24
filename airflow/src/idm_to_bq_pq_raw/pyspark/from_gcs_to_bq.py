@@ -27,6 +27,8 @@ print('WRITING TABLE IN BQ')
 idm_df.write\
     .mode("overwrite")\
     .format("bigquery")\
+    .option('partitionField', 'info_month_date')\
+    .option('clusteredFields', 'entity_code')\
     .option("table", "raw_dez_crimes.raw_municipal_crime_incidence")\
     .save()
 
