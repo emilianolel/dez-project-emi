@@ -40,3 +40,6 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+
+vars:
+  month_names_values: ['"january"', '"february"', '"march"', '"april"', '"may"', '"june"', '"july"', '"august"', '"september"', '"october"', '"november"', '"december"']
