@@ -1,6 +1,8 @@
 {{
     config(
-        materialized='table'
+        materialized='table',
+        partition_by={"field": "info_month_date", "data_type": "date"},
+         cluster_by = ["municipality_full_code"]
     )
 }}
 
