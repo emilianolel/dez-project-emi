@@ -7,6 +7,5 @@ default:
       project: dez-workspace-emil
       dataset: dez_project_mx_crimes
       threads: 4 # Must be a value of 1 or greater
-        #keyfile: ${GOOGLE_APPLICATION_CREDENTIALS}
       keyfile: /tmp/keys/gcp-secret.json
       job_execution_timeout_seconds: 3000 # 50 mins
