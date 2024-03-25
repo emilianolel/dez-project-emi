@@ -39,3 +39,4 @@ COPY ${REQUIREMENTS_FILE} ./
 
 RUN pip install --no-cache-dir --upgrade pip \
   && pip install --no-cache-dir -r ${REQUIREMENTS_FILE}
+

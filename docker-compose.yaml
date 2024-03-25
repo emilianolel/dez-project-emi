@@ -43,6 +43,8 @@ services:
             - ./airflow/dags:/opt/airflow/dags
             - ./airflow/logs:/opt/airflow/logs
             - ./airflow/src:/opt/airflow/src
+            - ./dbt:/opt/dbt
+            - ./dbt/.dbt/profiles.yml:/home/airflow/.dbt/profiles.yml
     
     airflow-webserver:
         << : *airflow-common
@@ -62,6 +64,8 @@ services:
             - ./airflow/dags:/opt/airflow/dags
             - ./airflow/logs:/opt/airflow/logs
             - ./airflow/src:/opt/airflow/src
+            - ./dbt/mx_crimes:/opt/dbt/mx_crimes
+            - ./dbt/.dbt/profiles.yml:/home/airflow/.dbt/profiles.yml
         ports:
             - "8080:8080"
     

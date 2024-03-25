@@ -4,7 +4,7 @@ ARG AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=True
 ARG AIRFLOW__CORE__LOAD_EXAMPLES=False
 ARG AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
 ARG APACHE_AIRFLOW_VERSION=latest
-ARG AIRFLOW_HOME=/usr/local/airflow
+ARG AIRFLOW_HOME=/opt/airflow
 ARG GCLOUD_PACKAGE_LINK=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
 ARG GOOGLE_TEMP_DIR=/tmp/google-cloud-sdk.tar.gz
 ARG USR_GCLOUD_DIR=/usr/local/gcloud
@@ -19,6 +19,7 @@ ARG GCP_PRJECT=dez-workspace-emil
 ARG WORKDIR=/airflow
 ARG REQUIREMENTS_FILE=requirements.txt
 ARG ENTRYPOINT=entrypoint.sh
+ARG DBT_DIR=/opt/dbt/mx_crimes
 # Use the official Airflow image as the base
 FROM apache/airflow:${APACHE_AIRFLOW_VERSION}
 
@@ -43,6 +44,7 @@ ARG GCP_PRJECT
 ARG WORKDIR
 ARG REQUIREMENTS_FILE
 ARG ENTRYPOINT
+ARG DBT_DIR
 
 # Set the AIRFLOW_HOME environment variable
 ENV AIRFLOW_HOME=${AIRFLOW_HOME}
@@ -82,3 +84,4 @@ COPY ${REQUIREMENTS_FILE} ./
 
 RUN pip install --no-cache-dir --upgrade pip \
   && pip install --no-cache-dir -r ${REQUIREMENTS_FILE}
+
