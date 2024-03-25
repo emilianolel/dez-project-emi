@@ -4,8 +4,8 @@ default:
     dev:
       type: bigquery
       method: service-account
-      project: dez-workspace-emil
+      project: "{{ env_var('GCP_PROJECT') }}"
       dataset: dez_project_mx_crimes
       threads: 4 # Must be a value of 1 or greater
-      keyfile: /tmp/keys/gcp-secret.json
+      keyfile: "{{ env_var('CONTAINER_GCP_SECRET_FILE') }}"
       job_execution_timeout_seconds: 3000 # 50 mins
