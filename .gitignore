@@ -5,4 +5,4 @@
 .terraform/
 logs/
 .DS_Store
-.usr
+.user
