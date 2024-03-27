@@ -2,6 +2,7 @@
 # coding: utf-8
 
 LANDING_BUCKET = 'gs://landing_bucket_dez/'
+BUCKET_DIR = 'idm/'
 PARQUET_FILE = 'pq/idm/'
 CSV_FILE = 'idm.csv'
 
@@ -110,6 +111,7 @@ print('WRITING DATA')
 date_df.write\
     .mode("overwrite")\
     .partitionBy('year')\
-    .parquet(LANDING_BUCKET + CSV_FILE)
+    .parquet(LANDING_BUCKET + BUCKET_DIR + CSV_FILE)
+
 
 print('DONE!')

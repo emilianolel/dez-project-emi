@@ -1,0 +1,61 @@
+{
+  "projectId": "dez-workspace-emil",
+  "clusterName": "dez-project-emil-cluster",
+  "config": {
+    "configBucket": "",
+    "gceClusterConfig": {
+      "networkUri": "default",
+      "subnetworkUri": "",
+      "internalIpOnly": false,
+      "zoneUri": "",
+      "metadata": {},
+      "tags": [],
+      "shieldedInstanceConfig": {
+        "enableSecureBoot": false,
+        "enableVtpm": false,
+        "enableIntegrityMonitoring": false
+      }
+    },
+    "masterConfig": {
+      "numInstances": 1,
+      "machineTypeUri": "n2-standard-4",
+      "diskConfig": {
+        "bootDiskType": "pd-balanced",
+        "bootDiskSizeGb": 500,
+        "numLocalSsds": 0
+      },
+      "minCpuPlatform": "",
+      "imageUri": ""
+    },
+    "softwareConfig": {
+      "imageVersion": "2.1-ubuntu20",
+      "properties": {
+        "dataproc:dataproc.allow.zero.workers": "true"
+      },
+      "optionalComponents": [
+        "JUPYTER",
+        "DOCKER"
+      ]
+    },
+    "lifecycleConfig": {},
+    "initializationActions": [],
+    "encryptionConfig": {
+      "gcePdKmsKeyName": ""
+    },
+    "autoscalingConfig": {
+      "policyUri": ""
+    },
+    "endpointConfig": {
+      "enableHttpPortAccess": false
+    },
+    "securityConfig": {
+      "kerberosConfig": {}
+    }
+  },
+  "labels": {},
+  "status": {},
+  "statusHistory": [
+    {}
+  ],
+  "metrics": {}
+}
