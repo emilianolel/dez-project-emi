@@ -29,7 +29,9 @@ args = parser.parse_args()
 
 
 coords_schema = StructType([
-    StructField('entity_code', StringType(), True)
+    StructField('map_code', StringType(), True)
+    , StructField('status_code', StringType(), True)
+    , StructField('entity_code', StringType(), True)
     , StructField('entity_name', StringType(), True)
     , StructField('entity_name_short', StringType(), True)
     , StructField('municipality_code', StringType(), True)
@@ -37,10 +39,16 @@ coords_schema = StructType([
     , StructField('location_code', StringType(), True)
     , StructField('location_name', StringType(), True)
     , StructField('scope_code', StringType(), True)
-    , StructField('latitude', FloatType(), True)
-    , StructField('longitude', FloatType(), True)
+    , StructField('latitude', StringType(), True)
+    , StructField('longitude', StringType(), True)
+    , StructField('latitude_decimal', FloatType(), True)
+    , StructField('longitude_decimal', FloatType(), True)
     , StructField('altitude', IntegerType(), True)
     , StructField('letter_key', StringType(), True)
+    , StructField('total_population', IntegerType(), True)
+    , StructField('masculine_population', IntegerType(), True)
+    , StructField('feminine_population', IntegerType(), True)
+    , StructField('inhabited_homes', IntegerType(), True)
 ])
 
 

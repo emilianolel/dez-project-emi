@@ -75,6 +75,8 @@ ENV GOOGLE_APPLICATION_CREDENTIALS=${CONTAINER_GCP_SECRET_FILE}
 
 RUN gcloud auth activate-service-account ${GCP_SERVICE_ACCOUNT} --key-file=${GOOGLE_APPLICATION_CREDENTIALS} --project=${GCP_PROJECT}
 
+RUN apt-get update && apt-get install -y unzip
+
 USER ${AIRFLOW_UID:-50000}:0
 
 # Install python packages
@@ -84,4 +86,3 @@ COPY ${REQUIREMENTS_FILE} ./
 
 RUN pip install --no-cache-dir --upgrade pip \
   && pip install --no-cache-dir -r ${REQUIREMENTS_FILE}
-
