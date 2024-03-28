@@ -8,7 +8,7 @@ DATAPROC_CLUSTER=dez-cluster
 DATAPROC_REGION=us-central1
 GCP_PROJECT=dez-workspace-emil
 SOURCE_FILE_PATH='gs://landing_bucket_dez/mex_coords/mex_coords.csv'
-TARGET_FILE_PATH='gs://landing_bucket_dez/pq/mex_coords/'
+TARGET_FILE_PATH='gs://parquet_bucket_dez/pq/mex_coords/'
 
 echo
 echo 'SETTING UP SERVICE ACCOUNT'

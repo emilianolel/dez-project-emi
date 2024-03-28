@@ -32,12 +32,12 @@ args = parser.parse_args()
 
 print('READING PARQUET FILE')
 
-df = spark.read.parquet(args.source_file)
+df = spark.read.option('encoding', 'ISO-8859-1').parquet(args.source_file)
 
 
 print('WRITING TABLE IN BQ')
 
 
-df.write.mode("overwrite").format("bigquery").option("table", args.target_table).save()
+df.write.mode("overwrite").format("bigquery").option('encoding', 'ISO-8859-1').option("table", args.target_table).save()
 
 print('DONE!')

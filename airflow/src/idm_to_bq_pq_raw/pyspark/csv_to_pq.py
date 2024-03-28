@@ -2,6 +2,7 @@
 # coding: utf-8
 
 LANDING_BUCKET = 'gs://landing_bucket_dez/'
+PARQUET_BUCKET = 'gs://parquet_bucket_dez/'
 BUCKET_DIR = 'idm/'
 PARQUET_FILE = 'pq/idm/'
 CSV_FILE = 'idm.csv'
@@ -92,8 +93,9 @@ def get_first_day_of_month_date_udf(year, month_name):
 print('READING CSV FILE')
 idm_df = spark.read\
     .option('header', True)\
+    .option("encoding", "ISO-8859-1")\
     .schema(idm_schema)\
-    .csv(LANDING_BUCKET + CSV_FILE)
+    .csv(LANDING_BUCKET + BUCKET_DIR + CSV_FILE)
 
 
 print('TRANSFORMING DATA')
@@ -110,8 +112,9 @@ date_df.cache
 print('WRITING DATA')
 date_df.write\
     .mode("overwrite")\
+    .option("encoding", "ISO-8859-1")\
     .partitionBy('year')\
-    .parquet(LANDING_BUCKET + BUCKET_DIR + CSV_FILE)
+    .parquet(PARQUET_BUCKET + PARQUET_FILE)
 
 
 print('DONE!')

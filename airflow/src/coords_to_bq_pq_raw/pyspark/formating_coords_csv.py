@@ -3,7 +3,7 @@
 
 
 SOURCE_FILE_PATH = 'gs://landing_bucket_dez/mex_coords/mex_coords.csv'
-TARGET_FILE_PATH = 'gs://landing_bucket_dez/pq/mex_coords/'
+TARGET_FILE_PATH = 'gs://parquet_bucket_dez/pq/mex_coords/'
 
 
 from pyspark.sql import SparkSession
@@ -54,6 +54,7 @@ coords_schema = StructType([
 
 coords_df = spark.read\
     .option('header', True)\
+    .option("encoding", "ISO-8859-1")\
     .schema(coords_schema)\
     .csv(args.source_file)
 
@@ -64,5 +65,6 @@ coords_df = coords_df.withColumn('entity_name_short', F.regexp_replace('entity_n
 
 coords_df.write\
     .mode("overwrite")\
+    .option("encoding", "ISO-8859-1")\
     .partitionBy('entity')\
     .parquet(args.target_file)

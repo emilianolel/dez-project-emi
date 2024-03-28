@@ -51,6 +51,8 @@ mkdir -p $TEMP_DIRECTORY
 echo
 echo 'DOWNLOADING IDM CSV FILE'
 download_idm $IDM_DOWNLOAD_LINK
+echo
+head $TEMP_DIRECTORY$CSV_FILE_NAME
 
 echo
 echo 'MOVING IDM CSV FILE TO GCS'

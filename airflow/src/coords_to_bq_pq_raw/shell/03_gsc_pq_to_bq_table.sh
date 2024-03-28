@@ -7,7 +7,7 @@ PYTHON_FILE=from_gcs_to_bq.py
 DATAPROC_CLUSTER=dez-cluster
 DATAPROC_REGION=us-central1
 GCP_PROJECT=dez-workspace-emil
-SOURCE_FILE_PATH='gs://landing_bucket_dez/pq/mex_coords/*'
+SOURCE_FILE_PATH='gs://parquet_bucket_dez/pq/mex_coords/*'
 TARGET_TABLE='raw_geo_mx.raw_mexico_coordinates'
 
 echo
