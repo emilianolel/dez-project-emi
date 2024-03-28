@@ -10,7 +10,7 @@ sources:
     database: dez-workspace-emil
     schema: raw_geo_mx
     tables: 
-      - name: mexico_coordinates
+      - name: raw_mexico_coordinates
 
 models:
   - name: stg_coords-raw__mexico_coordinates
