@@ -44,11 +44,11 @@ select
     , mcr.month_name
     , mcr.month_nbr
     , mcr.crimes
-    , mcr.info_month_date
     , mco.total_population
     , mco.masculine_population
     , mco.feminine_population
     , mco.inhabited_homes
+    , mcr.info_month_date
 from 
     mexico_crimes as mcr
 inner join 
