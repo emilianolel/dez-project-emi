@@ -1,13 +1,11 @@
 #!/bin/bash
-set -e
+
 
 TEMP_DIRECTORY=../tmp/mex_coords/
 
-DOWNLOAD_LINK='https://www.inegi.org.mx/contenidos/app/ageeml/catun_localidad.zip'
+DOWNLOAD_LINK='https://raw.githubusercontent.com/eduardoarandah/coordenadas-estados-municipios-localidades-de-mexico-json/master/data.csv'
 
 CSV_FILE_NAME=mex_coords.csv
-
-ZIP_FILE_NAME=mex_coords.zip
 
 CSV_DIR_NAME=mex_coords/
 
@@ -21,13 +19,8 @@ echo 'CREATING TEMP DIR'
 mkdir -p $TEMP_DIRECTORY
 
 echo
-echo 'DOWNLOADING COORDS ZIP FILE'
-curl -o $TEMP_DIRECTORY$ZIP_FILE_NAME -LJ $DOWNLOAD_LINK
-
-echo
-echo 'EXTRACTING COORDS CSV FILE'
-unzip $TEMP_DIRECTORY$ZIP_FILE_NAME -d $TEMP_DIRECTORY
-mv ${TEMP_DIRECTORY}AGEEML*.csv $TEMP_DIRECTORY$CSV_FILE_NAME
+echo 'DOWNLOADING IDM CSV FILE'
+curl -o $TEMP_DIRECTORY$CSV_FILE_NAME -LJ $DOWNLOAD_LINK
 
 echo
 echo 'MOVING IDM CSV FILE TO GCS'

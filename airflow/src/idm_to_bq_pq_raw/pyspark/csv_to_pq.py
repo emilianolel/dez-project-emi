@@ -2,6 +2,7 @@
 # coding: utf-8
 
 LANDING_BUCKET = 'gs://landing_bucket_dez/'
+BUCKET_DIR = 'idm/'
 PARQUET_FILE = 'pq/idm/'
 CSV_FILE = 'idm.csv'
 
@@ -87,11 +88,13 @@ month_dict = {
 def get_first_day_of_month_date_udf(year, month_name):
     return str(year) + '-' + month_dict[month_name]
 
+
 print('READING CSV FILE')
 idm_df = spark.read\
     .option('header', True)\
     .schema(idm_schema)\
     .csv(LANDING_BUCKET + CSV_FILE)
+
 
 print('TRANSFORMING DATA')
 unpivoted_df = idm_df.selectExpr(*unpivoting_columns
@@ -100,12 +103,15 @@ unpivoted_df = idm_df.selectExpr(*unpivoting_columns
 
 date_df = unpivoted_df.withColumn('info_month_date', get_first_day_of_month_date_udf('year', 'month').cast(DateType()))
 
+
 date_df.cache
+
 
 print('WRITING DATA')
 date_df.write\
     .mode("overwrite")\
     .partitionBy('year')\
-    .parquet(LANDING_BUCKET + CSV_FILE)
+    .parquet(LANDING_BUCKET + BUCKET_DIR + CSV_FILE)
+
 
 print('DONE!')
