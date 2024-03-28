@@ -25,9 +25,14 @@ renamed as (
         , municipality_code
         , concat(entity_code, municipality_code) as municipality_full_code
         , municipality_name
-        , AVG(latitude) as latitude
-        , AVG(longitude) as longitude
+        , AVG(latitude_decimal) as latitude_decimal
+        , AVG(longitude_decimal) as longitude_decimal
         , AVG(altitude) as altitude
+        , ST_GEOGPOINT(AVG(longitude_decimal), AVG(latitude_decimal)) as geo_point
+        , SUM(total_population) as total_population
+        , SUM(masculine_population) as masculine_population
+        , SUM(feminine_population) as feminine_population
+        , SUM(inhabited_homes) as inhabited_homes
 
     from 
         source

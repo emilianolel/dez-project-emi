@@ -36,6 +36,7 @@ select
     , mco.latitude
     , mco.longitude
     , mco.altitude
+    , mco.geo_point
     , mcr.affected_legal_asset
     , mcr.crime_type
     , mcr.crime_subtype
@@ -44,6 +45,10 @@ select
     , mcr.month_nbr
     , mcr.crimes
     , mcr.info_month_date
+    , mco.total_population
+    , mco.masculine_population
+    , mco.feminine_population
+    , mco.inhabited_homes
 from 
     mexico_crimes as mcr
 inner join 
