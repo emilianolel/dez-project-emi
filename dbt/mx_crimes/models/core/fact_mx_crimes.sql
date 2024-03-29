@@ -43,7 +43,7 @@ select
     , mcr.crime_modality_type
     , mcr.month_name
     , mcr.month_nbr
-    , mcr.crimes
+    , coalesce(mcr.crimes, 0) as crimes
     , mco.total_population
     , mco.masculine_population
     , mco.feminine_population
