@@ -2,6 +2,8 @@
 
 Welcome to our project's README! This is where you get a sneak peek into our crime-fighting data engineering adventure in Mexico. 🦸‍♂️🇲🇽
 
+![Crimes Per Geographical Region](./assets/dashboard/dashboard_geo.png)
+
 ## What's This All About? 🤔
 
 Our goal? Simple. We're building a dashboard to showcase criminal stats in Mexico. It's a blend of cool tech, data magic, and a sprinkle of detective work. 🔍💻
