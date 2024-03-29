@@ -68,7 +68,7 @@ And that's how we roll—riding the data waves, catching insights, and turning t
 
 2. **Get Things Ready:**
    ```bash
-cd dez-project-emi
+    cd dez-project-emi
    ```
    # Set up your environment (you got this!).
 
