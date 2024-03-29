@@ -3,6 +3,7 @@
 Welcome to our project's README! This is where you get a sneak peek into our crime-fighting data engineering adventure in Mexico. 🦸‍♂️🇲🇽
 
 ![Crimes Per Geographical Region](./assets/dashboard/dashboard_mex_map.png =100x20)
+<img src="./assets/dashboard/dashboard_mex_map.png" alt="Crimes Per Geographical Region" width=50% height=50%/>
 
 ## What's This All About? 🤔
 
