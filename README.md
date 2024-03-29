@@ -20,11 +20,11 @@ The goal? Simple. We're building a dashboard to showcase criminal stats in Mexic
 
 - **Apache Airflow:** The conductor orchestrating our data symphony.
 
-- **DBT (Data Build Tool):** Crafting our data models with finesse.
+- **DBT (Data Build Tool):** Crafting our data models with finesse. 🔨
 
-- **Docker:** Wrapping Airflow and friends in neat little containers.
+- **Docker:** Wrapping Airflow, DBT, and friends in neat little containers. 🐳
 
-- **Terraform:** Building castles in the cloud (GCP).
+- **Terraform:** Building castles in the cloud (GCP). 🏰
 
 ## How Does It All Fit Together? 🧩
 
