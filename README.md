@@ -4,7 +4,7 @@ Welcome to my project's README! This is where you get a sneak peek into Mexico c
 
 <p align="center">
     <img src="./assets/dashboard/dashboard_mex_map.png" alt="Crimes Per Geographical Region" width=60% height=60%/>
-</>
+</p>
 
 ## What's This All About? 🤔
 
@@ -75,9 +75,12 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    # Set up your environment (you got this!).
 
 3. **Hook Up GCP:**
-   - Spin up a GCP project.
-   - Flip those API switches (Dataproc, BigQuery, you know the drill).
-   - Make some service accounts dance to your tune.
+   - [Spin up a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+   - Flip those API switches (Dataproc, BigQuery, LookerStudio).
+   - Make some service accounts dance to your tune. Here is an example of the roles you will need
+   <p align="center">
+      <img src="./assets/service_account_roles.png" alt="Service Account_roles" width=60% height=60%/>
+   </p>
 
 4. **Fire Up Terraform:**
    terraform init
