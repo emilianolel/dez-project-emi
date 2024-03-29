@@ -19,7 +19,7 @@ print('READING PARQUET FILE')
 
 idm_df = spark.read\
     .option("encoding", "ISO-8859-1")\
-    .parquet('gs://landing_bucket_dez/pq/idm/*')\
+    .parquet(PARQUET_FILE)\
     .na.drop(subset=['info_month_date'])
 
 
