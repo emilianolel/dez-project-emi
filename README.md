@@ -1,6 +1,6 @@
 # Criminal Stats Dashboard for Mexico 🚔📊
 
-Welcome to our project's README! This is where you get a sneak peek into our crime-fighting data engineering adventure in Mexico. 🦸‍♂️🇲🇽
+Welcome to my project's README! This is where you get a sneak peek into Mexico crime data. 🦸‍♂️🇲🇽
 
 <p align="center">
     <img src="./assets/dashboard/dashboard_mex_map.png" alt="Crimes Per Geographical Region" width=60% height=60%/>
@@ -8,7 +8,7 @@ Welcome to our project's README! This is where you get a sneak peek into our cri
 
 ## What's This All About? 🤔
 
-Our goal? Simple. We're building a dashboard to showcase criminal stats in Mexico. It's a blend of cool tech, data magic, and a sprinkle of detective work. 🔍💻
+The goal? Simple. We're building a dashboard to showcase criminal stats in Mexico. It's a blend of cool tech, data magic, and a sprinkle of detective work. 🔍💻
 
 ## Tech Stack 🛠️
 
@@ -19,6 +19,8 @@ Our goal? Simple. We're building a dashboard to showcase criminal stats in Mexic
   - Compute Engine: Hosting a VM for our shenanigans.
 
 - **Apache Airflow:** The conductor orchestrating our data symphony.
+
+- **DBT (Data Build Tool):** Crafting our data models with finesse.
 
 - **Docker:** Wrapping Airflow and friends in neat little containers.
 
