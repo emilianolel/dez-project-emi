@@ -32,6 +32,33 @@ Imagine a world where data flows like a river, getting processed, stored, and vi
 
 ![Architecture Diagram](./assets/architecture/dez_arch_emi_v0.3.drawio.png)
 
+## Data Flow Overview 🌊
+
+Our data journey is like riding a wave 🏄‍♂️—it starts with a splash and ends with a splashier insight! Here's the lowdown:
+
+1. **Data Ingestion 🚀:**
+   - Raw data rides in from all corners of Mexico, packing juicy details about crimes, locations, and times. Think of it as our data surfers catching the gnarliest waves of info.
+   - We scoop up this data and stash it in our beachfront hangout: Google Cloud Storage (GCS). It's like the cool surf shack where all the rad data hangs out.
+
+2. **Data Processing 🌊:**
+   - Time to ride the wave! With Apache Airflow as our wave master, we shred through tasks like data cleanup, transformation, and enrichment. 🤙
+   - Spark jobs on Google Dataproc clusters do the heavy lifting, turning raw data into polished pearls ready for analysis.
+
+3. **Data Storage 🏄‍♀️:**
+   - Our polished pearls make their way to the BigQuery beach house, where they chillax in structured tables. BigQuery is our go-to spot for sippin' on SQL queries and soaking up insights.
+   - Sometimes, we stash intermediate goodies here too, for quick access during our surfing sessions.
+
+4. **Data Modeling 💪:**
+   - Now it's time to sculpt! With DBT (Data Build Tool), we mold our data into sleek, well-defined shapes. Think of it as giving our insights a killer beach bod.
+   - SQL magic in DBT transforms our data, adding layers of meaning and depth, turning raw numbers into stories worth telling.
+
+5. **Data Visualization 🌊:**
+   - Hang on tight, 'cause here come the waves of insight! 🌊 We hop on LookerStudio visualization tool to craft custom dashboards to ride those data waves.
+   - Interactive dashboards make it a breeze for everyone to catch a glimpse of the big kahuna: key metrics, trends, and patterns in Mexico's crime scene.
+
+And that's how we roll—riding the data waves, catching insights, and turning them into action-packed adventures in the world of Mexican crime stats! 🔍
+
+
 ## Getting Started 🚀
 
 1. **Clone Me:**
