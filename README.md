@@ -64,7 +64,9 @@ And that's how we roll—riding the data waves, catching insights, and turning t
 ## Getting Started 🚀
 
 1. **Clone Me:**
+   ```bash
    git clone https://github.com/emilianolel/dez-project-emi.git
+   ```
 
 2. **Get Things Ready:**
    ```bash
