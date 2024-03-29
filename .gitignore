@@ -6,3 +6,4 @@
 logs/
 .DS_Store
 ./dbt/mx_crimes/.user.yml
+.ipynb_checkpoints/
