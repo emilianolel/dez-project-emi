@@ -67,7 +67,9 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    git clone https://github.com/emilianolel/dez-project-emi.git
 
 2. **Get Things Ready:**
-   cd repository
+   ```bash
+cd dez-project-emi
+   ```
    # Set up your environment (you got this!).
 
 3. **Hook Up GCP:**
