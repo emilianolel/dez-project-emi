@@ -79,7 +79,7 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    - Flip those API switches (Dataproc, BigQuery, LookerStudio).
    - Make some service accounts dance to your tune. Here is an example of the roles you will need
    <p align="center">
-      <img src="./assets/service_account_roles.png" alt="Service Account_roles" width=60% height=60%/>
+      <img src="./assets/service_account_roles.png" alt="Service Account_roles" width=30% height=30%/>
    </p>
 
 4. **Fire Up Terraform:**
