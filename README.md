@@ -61,6 +61,7 @@ Imagine a world where data flows like a river, getting processed, stored, and vi
 
 3. **Explore the Dashboard:**
    - Access our crime-busting dashboard via the provided link.
+   ![report](./assets/dashboard/dashboard_geo.png)(https://lookerstudio.google.com/reporting/e4caefba-78d3-4d88-8dd0-b53e55b467c9/page/p_svlrf4mvfd)
 
    <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/e4caefba-78d3-4d88-8dd0-b53e55b467c9/page/p_svlrf4mvfd" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
