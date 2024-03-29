@@ -30,7 +30,7 @@ The goal? Simple. We're building a dashboard to showcase criminal stats in Mexic
 
 Imagine a world where data flows like a river, getting processed, stored, and visualized seamlessly. That's our game plan! 🌊📈
 
-![Architecture Diagram](architecture_diagram.png)
+![Architecture Diagram](./assets/architecture/dez_arch_emi_v0.2.drawio.png)
 
 ## Getting Started 🚀
 
