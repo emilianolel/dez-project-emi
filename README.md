@@ -58,6 +58,8 @@ Our data journey is like riding a wave 🏄‍♂️—it starts with a splash a
 
 And that's how we roll—riding the data waves, catching insights, and turning them into action-packed adventures in the world of Mexican crime stats! 🔍
 
+![DataLake & DataWarehouse](./assets/data/DataLake_&_DataWarehouse.drawio.png)
+
 
 ## Getting Started 🚀
 
