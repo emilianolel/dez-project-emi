@@ -35,7 +35,7 @@ Imagine a world where data flows like a river, getting processed, stored, and vi
 ## Getting Started 🚀
 
 1. **Clone Me:**
-   git clone https://github.com/your/repository.git
+   git clone https://github.com/emilianolel/dez-project-emi.git
 
 2. **Get Things Ready:**
    cd repository
