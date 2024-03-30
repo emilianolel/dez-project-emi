@@ -135,6 +135,16 @@ And that's how we roll—riding the data waves, catching insights, and turning t
     docker run hello-world
     ```
 
+7. **Set up Airflow ENV Variables**
+   - Open the `airflow/airflow.env` and modify the following variables:
+   ```bash
+   # Params to touch
+   USER_GCP_SECRET_PATH=.secrets/gcp/
+   USER_GCP_SECRET_NAME=gcp-secret.json
+   GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
+   GCP_PROJECT=dez-workspace-emil
+   ```
+
 5. **Launch Airflow:**
    - Dockerize Airflow.
    - Blast off using Docker Compose or Kubernetes.
