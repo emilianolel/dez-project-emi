@@ -27,6 +27,7 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo service docker restart
 docker context use default
+sudo systemctl start docker
 
 echo
 echo "-> Runnig Hello World!"
