@@ -81,8 +81,10 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    <p align="center">
       <img src="./assets/service_account_roles.png" alt="Service Account_roles" width=30% height=30%/>
    </p>
+   - Create a Key for that service account and save it.
 
 4. **Fire Up Terraform:**
+   Open `terraform/variables.tf` and replace this variables for the ones that fits you better such as your service account and secret `.json` file.
    ```bash
    cd terraform
    ```
