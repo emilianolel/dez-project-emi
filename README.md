@@ -144,6 +144,10 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
    GCP_PROJECT=dez-workspace-emil
    ```
+   - Run the following command in order to create the Dockerfile:
+   ```bash
+   ./docker/make_dockerfile.sh
+   ```
 
 5. **Launch Airflow:**
    - Dockerize Airflow.
