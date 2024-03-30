@@ -23,6 +23,11 @@ echo
 echo "-> Installing docker latest version"
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+sudo service docker restart
+docker context use default
+
 echo
 echo "-> Runnig Hello World!"
 sudo docker run hello-world
