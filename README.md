@@ -83,8 +83,36 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    </p>
 
 4. **Fire Up Terraform:**
+   ```bash
+   cd terraform
+   ```
+   ```bash
    terraform init
+   ```
+   ```bash
    terraform apply
+   ```
+
+5. **Connect to VM**
+   - Open Google Cloud Console and get the `external ip` of your VM.
+   - Connect to it using:
+   ```bash
+   ssh -i <path/to/ssh/private/key> <username>@<external_ip_address>
+   ```
+      - If got the following error message:
+      ```
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+      Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+      It is also possible that a host key has just been changed.
+      The fingerprint for the ED25519 key sent by the remote host is
+      ```
+      you can run:
+      ```bash
+      ssh-keygen -R <external_ip_address>
+      ```
 
 5. **Launch Airflow:**
    - Dockerize Airflow.
