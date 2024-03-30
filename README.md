@@ -121,6 +121,19 @@ And that's how we roll—riding the data waves, catching insights, and turning t
     ```bash
    ./setup/install_docker.sh 
     ```
+    - Then run the following commands:
+    ```bash
+    sudo groupadd docker
+    ```
+    ```bash
+    sudo usermod -aG docker $USER
+    ```
+    ```bash
+    newgrp docker
+    ```
+    ```bash
+    docker run hello-world
+    ```
 
 5. **Launch Airflow:**
    - Dockerize Airflow.

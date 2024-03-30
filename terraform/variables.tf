@@ -1,7 +1,7 @@
 # GENERAL VARIABLES
 variable "my_creds" {
   description = "my credentials path"
-  default     = "../.secrets/gcp/dez-workspace-emil-063b4716b3be.json"
+  default     = "../.secrets/gcp/dez-workspace-emil-063b4716b3be.json" # Change 
 }
 
 variable "region" {
@@ -16,7 +16,7 @@ variable "zone" {
 
 variable "project" {
   description = "Proyect"
-  default     = "dez-workspace-emil"
+  default     = "dez-workspace-emil" # Change
 }
 
 variable "location" {
@@ -31,7 +31,7 @@ variable "static_ip_address_name" {
 
 variable "service_account_email" {
     description = "Service Account Email"
-    default = "dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com"
+    default = "dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com" # Change
 }
 
 variable "compute_instance_name" {
@@ -41,12 +41,12 @@ variable "compute_instance_name" {
 
 variable "ssh_username" {
     description = "SSH Username"
-    default = "emilel"
+    default = "emilel" # Change
 }
 
 variable "ssh_pub_key" {
     description = "Path to pub key"
-    default = "../.ssh/gcp.pub"
+    default = "../.ssh/gcp.pub" # Change
 }
 
 variable "landing_bucket_name" {
