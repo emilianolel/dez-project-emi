@@ -116,6 +116,12 @@ And that's how we roll—riding the data waves, catching insights, and turning t
       ssh-keygen -R <external_ip_address>
       ```
 
+6. **Install Docker:**
+    - From the project directory simply run 
+    ```bash
+   ./setup/install_docker.sh 
+    ```
+
 5. **Launch Airflow:**
    - Dockerize Airflow.
    - Blast off using Docker Compose or Kubernetes.
