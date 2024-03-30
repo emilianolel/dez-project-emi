@@ -16,7 +16,7 @@ default_args = {
 with DAG(
     'COORDS_TO_BQ_PQ_RAW',
     default_args=default_args,
-    schedule_interval=None,
+    schedule_interval='0 0 22 * *',
     catchup = False,
     template_searchpath=SRC_SHELL_PATH
 ) as dag:
