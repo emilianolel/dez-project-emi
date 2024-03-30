@@ -150,7 +150,14 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    ```
 
 5. **Launch Airflow:**
-   - Dockerize Airflow.
+   - Dockerize Airflow. Change the following line of the file `./airflow/scripts/entrypoint.sh`
+   ```bash
+   airflow db init
+   ```
+   to
+   ```bash
+   airflow db reset
+   ```
    - Blast off using Docker Compose or Kubernetes.
 
 ## Let's Roll! 🎲
