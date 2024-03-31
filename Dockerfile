@@ -11,15 +11,15 @@ ARG USR_GCLOUD_DIR=/usr/local/gcloud
 ARG GCLOUD_SDK_TAR=/tmp/google-cloud-sdk.tar.gz
 ARG GCLOUD_SDK_INSTALL=/usr/local/gcloud/google-cloud-sdk/install.sh
 ARG GCLOUD_BIN=/usr/local/gcloud/google-cloud-sdk/bin
-ARG USER_GCP_SECRET_PATH=.secrets/gcp/
-ARG USER_GCP_SECRET_NAME=gcp-secret.json
 ARG CONTAINER_GCP_SECRET_FILE=/tmp/keys/gcp-secret.json
-ARG GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
-ARG GCP_PROJECT=dez-workspace-emil
 ARG WORKDIR=/airflow
 ARG REQUIREMENTS_FILE=requirements.txt
 ARG ENTRYPOINT=entrypoint.sh
 ARG DBT_DIR=/opt/dbt/mx_crimes
+ARG USER_GCP_SECRET_PATH=.secrets/gcp/
+ARG USER_GCP_SECRET_NAME=gcp-secret.json
+ARG GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
+ARG GCP_PROJECT=dez-workspace-emil
 # Use the official Airflow image as the base
 FROM apache/airflow:${APACHE_AIRFLOW_VERSION}
 
@@ -36,15 +36,15 @@ ARG USR_GCLOUD_DIR
 ARG GCLOUD_SDK_TAR
 ARG GCLOUD_SDK_INSTALL
 ARG GCLOUD_BIN
-ARG USER_GCP_SECRET_PATH
-ARG USER_GCP_SECRET_NAME
 ARG CONTAINER_GCP_SECRET_FILE
-ARG GCP_SERVICE_ACCOUNT
-ARG GCP_PROJECT
 ARG WORKDIR
 ARG REQUIREMENTS_FILE
 ARG ENTRYPOINT
 ARG DBT_DIR
+ARG USER_GCP_SECRET_PATH
+ARG USER_GCP_SECRET_NAME
+ARG GCP_SERVICE_ACCOUNT
+ARG GCP_PROJECT
 
 # Set the AIRFLOW_HOME environment variable
 ENV AIRFLOW_HOME=${AIRFLOW_HOME}
