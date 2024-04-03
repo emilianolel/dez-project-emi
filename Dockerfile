@@ -77,7 +77,7 @@ RUN gcloud auth activate-service-account ${GCP_SERVICE_ACCOUNT} --key-file=${GOO
 
 RUN apt-get update && apt-get install -y unzip
 
-USER ${AIRFLOW_UID:-50000}:0
+USER airflow
 
 # Install python packages
 WORKDIR ${WORKDIR}
