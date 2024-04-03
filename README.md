@@ -169,6 +169,7 @@ And that's how we roll—riding the data waves, catching insights, and turning t
 
 1. **Start Airflow:**
    # Get those Airflow gears turning.
+   ![DAGs](./assets/airflow/dags.png)
 
 2. **Check Out the UI:**
    - Visit `http://localhost:8080`.
