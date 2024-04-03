@@ -60,6 +60,10 @@ And that's how we roll—riding the data waves, catching insights, and turning t
 
 ![DataLake & DataWarehouse](./assets/data/DataLake_&_DataWarehouse.drawio.png)
 
+## DataWarehouse Overview
+
+![DataWarehouse](./assets/entity_realtionship/fact_diagram.png)
+
 
 ## Getting Started 🚀
 
