@@ -64,6 +64,7 @@ And that's how we roll—riding the data waves, catching insights, and turning t
 
 ![DataWarehouse](./assets/entity_realtionship/fact_diagram.png)
 
+![DataWarehouse](./assets/entity_realtionship/dbt_liniage.png)
 
 ## Getting Started 🚀
 
