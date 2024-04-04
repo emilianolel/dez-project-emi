@@ -15,7 +15,7 @@ default_args = {
 with DAG(
     'IDM_MASTER_DAG',
     default_args=default_args,
-    schedule_interval='0 0 22 * *',
+    schedule_interval='0 0 23 * *',
     catchup = False,
     max_active_runs = 1
 ) as dag:

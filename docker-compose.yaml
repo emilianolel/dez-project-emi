@@ -21,7 +21,7 @@ services:
             dockerfile: Dockerfile
             args:
                 AIRFLOW_VERSION: ${AIRFLOW_VERSION:-2.4.1}
-        user: airflow  
+        user: "1001"
         env_file:
             - ./airflow/airflow.env
 
@@ -40,9 +40,9 @@ services:
             airflow-init:
                 condition: service_completed_successfully
         volumes:
-            - ./airflow/dags:/opt/airflow/dags
-            - ./airflow/logs:/opt/airflow/logs
-            - ./airflow/src:/opt/airflow/src
+            - ./airflow/dags:/opt/airflow/dags:z
+            - ./airflow/logs:/opt/airflow/logs:z
+            - ./airflow/src:/opt/airflow/src:z
             - ./dbt:/opt/dbt
             - ./dbt/.dbt/profiles.yml:/home/airflow/.dbt/profiles.yml
     
@@ -61,11 +61,12 @@ services:
             airflow-init:
                 condition: service_completed_successfully
         volumes:
-            - ./airflow/dags:/opt/airflow/dags
-            - ./airflow/logs:/opt/airflow/logs
-            - ./airflow/src:/opt/airflow/src
+            - ./airflow/dags:/opt/airflow/dags:z
+            - ./airflow/logs:/opt/airflow/logs:z
+            - ./airflow/src:/opt/airflow/src:z
             - ./dbt/mx_crimes:/opt/dbt/mx_crimes
             - ./dbt/.dbt/profiles.yml:/home/airflow/.dbt/profiles.yml
+        user: airflow  
         ports:
             - "8080:8080"
     
@@ -84,6 +85,7 @@ services:
             _AIRFLOW_WWW_USER_PASSWORD: admin
         volumes:
             - ./airflow/scripts:/opt/airflow/scripts
+        user: airflow  
     
 volumes:
   airflow-db-data: {}

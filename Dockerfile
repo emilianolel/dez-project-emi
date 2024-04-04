@@ -20,6 +20,8 @@ ARG USER_GCP_SECRET_PATH=.secrets/gcp/
 ARG USER_GCP_SECRET_NAME=gcp-secret.json
 ARG GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
 ARG GCP_PROJECT=dez-workspace-emil
+ARG AIRFLOW_UID=50000
+ARG AIRFLOW_GID=0
 # Use the official Airflow image as the base
 FROM apache/airflow:${APACHE_AIRFLOW_VERSION}
 
@@ -45,6 +47,8 @@ ARG USER_GCP_SECRET_PATH
 ARG USER_GCP_SECRET_NAME
 ARG GCP_SERVICE_ACCOUNT
 ARG GCP_PROJECT
+ARG AIRFLOW_UID
+ARG AIRFLOW_GID
 
 # Set the AIRFLOW_HOME environment variable
 ENV AIRFLOW_HOME=${AIRFLOW_HOME}
@@ -77,7 +81,7 @@ RUN gcloud auth activate-service-account ${GCP_SERVICE_ACCOUNT} --key-file=${GOO
 
 RUN apt-get update && apt-get install -y unzip
 
-USER ${AIRFLOW_UID:-50000}:0
+USER ${AIRFLOW_UID:-1001}:0
 
 # Install python packages
 WORKDIR ${WORKDIR}
