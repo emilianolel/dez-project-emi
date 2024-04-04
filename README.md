@@ -145,9 +145,9 @@ And that's how we roll—riding the data waves, catching insights, and turning t
    ```bash
    # Params to touch
    USER_GCP_SECRET_PATH=.secrets/gcp/
-   USER_GCP_SECRET_NAME=gcp-secret.json
-   GCP_SERVICE_ACCOUNT=dez-project-emil@dez-workspace-emil.iam.gserviceaccount.com
-   GCP_PROJECT=dez-workspace-emil
+   USER_GCP_SECRET_NAME=<your-secret-json>
+   GCP_SERVICE_ACCOUNT=<your-service-account-id>@<your-gcp-project>.iam.gserviceaccount.com
+   GCP_PROJECT=<your-gcp-project>
    ```
    - Run the following command in order to create the Dockerfile:
    ```bash
