@@ -191,7 +191,7 @@ We're all about teamwork! If you're itching to hop on board, here's how:
 
 ## Legal Stuff 📜
 
-This project is licensed under the [MIT License](LICENSE). Go ahead, have fun with it!
+This project is licensed under the [MIT License](./LICENSE). Go ahead, have fun with it!
 
 ---
 
